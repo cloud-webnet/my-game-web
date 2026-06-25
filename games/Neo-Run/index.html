@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Neon Run - Platformer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <audio id="bgMusic" src="backsound.mp3" loop></audio>
+
+    <div id="game-container">
+        
+        <button id="btn-ingame-menu" class="top-btn hidden">⬅ MAIN MENU</button>
+        <button id="btn-music" class="top-btn" style="right: 15px; left: auto; border-color: #6b7280; color: #6b7280;">🎵 MUSIC: OFF</button>
+
+        <div id="main-menu" class="overlay">
+            
+            <h1 class="mc-title">NEON RUN</h1>
+            
+            <div class="mc-content">
+                <div class="mc-left">
+                    <button id="btn-exit-portal" class="menu-btn mc-btn-side">✖ QUIT TO PORTAL</button>
+                </div>
+                
+                <div class="mc-center">
+                    <button id="btn-start" class="menu-btn pulse">PLAY GAME</button>
+                    <button id="btn-change-color" class="menu-btn">CHANGE COLOR</button>
+                </div>
+                
+                <div class="mc-right">
+                    <input type="text" id="player-name" value="Player" maxlength="10">
+                    <div id="color-preview" class="color-box">
+                        <div class="mc-eye left-eye"></div>
+                        <div class="mc-eye right-eye"></div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <div id="end-popup" class="overlay hidden">
+            <div class="popup-box">
+                <h2 style="color: #eab308; margin-bottom: 10px;">SYSTEM FULLY HACKED!</h2>
+                <p style="font-size: 14px;">Congratulations, you breached the mainframe.</p>
+                <div id="final-stats" class="stats-box">
+                    Score: 0 | Deaths: 0
+                </div>
+                <div class="popup-buttons">
+                    <button id="btn-restart" class="menu-btn">PLAY AGAIN</button>
+                    <button id="btn-to-menu" class="menu-btn">MAIN MENU</button>
+                </div>
+            </div>
+        </div>
+
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+        
+        <div id="mobile-controls">
+            <div class="control-group">
+                <button id="btn-left" class="game-btn">◀</button>
+                <button id="btn-right" class="game-btn">▶</button>
+            </div>
+            <button id="btn-jump" class="game-btn">▲ JUMP</button>
+        </div>
+    </div>
+    
+    <script src="game.js"></script>
+    
+    <script src="levels/level1.js"></script>
+    <script src="levels/level2.js"></script>
+    <script src="levels/level3.js"></script>
+    <script src="levels/level4.js"></script>
+    <script src="levels/level5.js"></script>
+</body>
+</html>
