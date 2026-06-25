@@ -1,0 +1,235 @@
+/* VARIABEL WARNA TEMA TERMINAL */
+:root {
+    --bg-main: #050505;        /* Hitam pekat */
+    --panel-bg: #09090b;       /* Abu-abu sangat gelap untuk kotak */
+    --border-purple: #4c1d95;  /* Ungu redup untuk border default */
+    --neon-purple: #8b5cf6;    /* Ungu neon menyala untuk hover */
+    --text-cyan: #2dd4bf;      /* Cyan untuk aksen data */
+    --text-pink: #d946ef;      /* Pink/Magenta untuk logo */
+    --text-muted: #71717a;     /* Teks abu-abu */
+}
+
+/* Mengatur font dan background dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Fira Code', monospace; /* Font mesin ketik */
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-muted);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Canvas Background Layer (Z-index minus agar di belakang) */
+#particle-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+}
+
+/* Wrapper Konten Utama */
+.main-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 0 20px;
+}
+
+/* Header */
+header {
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px dashed #27272a;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-pink);
+}
+
+.blink {
+    animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+    50% { opacity: 0; }
+}
+
+header .status {
+    color: var(--text-cyan);
+    font-size: 13px;
+}
+
+/* Container Iklan Bergaya Terminal */
+.ad-container {
+    width: 100%;
+    max-width: 900px;
+    background-color: var(--panel-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    border-radius: 8px;
+    border: 1px dashed var(--border-purple);
+    color: var(--text-muted);
+    font-size: 12px;
+}
+
+.top-ad { height: 90px; }
+.bottom-ad { height: 250px; }
+
+/* Kunci Utama: Grid ala Friv */
+.game-grid {
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 15px;
+}
+
+/* Kartu Game (Thumbnail) dengan Tema Terminal */
+.game-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    overflow: hidden;
+    text-decoration: none;
+    background-color: var(--panel-bg);
+    border: 1px solid var(--border-purple);
+    transition: all 0.3s ease;
+}
+
+.game-card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    display: block;
+    opacity: 0.6;
+    transition: opacity 0.3s;
+    border-bottom: 1px solid #27272a;
+}
+
+.game-title {
+    padding: 8px;
+    color: var(--text-muted);
+    font-size: 11px;
+    text-align: center;
+    transition: color 0.3s;
+}
+
+/* Efek Hover dengan Neon Ungu */
+.game-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--neon-purple);
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.3);
+    z-index: 10;
+}
+
+.game-card:hover img {
+    opacity: 1;
+}
+
+.game-card:hover .game-title {
+    color: var(--text-cyan);
+}
+
+/* Footer */
+footer {
+    width: 100%;
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: auto;
+    font-size: 12px;
+    border-top: 1px dashed #27272a;
+    color: var(--text-muted);
+}
+
+footer p {
+    margin-bottom: 5px;
+}
+
+footer a {
+    color: var(--text-cyan);
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+    color: var(--text-pink);
+}
+
+/* --- START EFEK LAYAR LOADING TERMINAL --- */
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    /* Background transparan agar partikel dari canvas di bawahnya terlihat jelas */
+    background-color: transparent; 
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#loading-screen.hidden {
+    display: none;
+}
+
+/* Kotak Loader di Tengah */
+.loader-content {
+    width: 80%;
+    max-width: 300px;
+    text-align: center;
+}
+
+.loader-text {
+    color: var(--text-cyan);
+    font-size: 14px;
+    margin-bottom: 15px;
+    text-transform: lowercase;
+}
+
+/* Wadah Progress Bar */
+.loader-bar-container {
+    width: 100%;
+    height: 6px; /* Lebih tipis dan elegan */
+    background-color: #18181b;
+    border: 1px solid var(--border-purple);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Isi Progress Bar yang berjalan */
+.loader-bar {
+    height: 100%;
+    width: 0%;
+    background-color: var(--neon-purple);
+    box-shadow: 0 0 10px var(--neon-purple);
+    transition: width 0.1s linear;
+}
+
+.loader-percentage {
+    color: var(--text-muted);
+    font-size: 12px;
+    margin-top: 10px;
+    font-family: 'Fira Code', monospace;
+}
+/* --- END EFEK LAYAR LOADING TERMINAL --- */

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAMEKU // Terminal Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="loading-screen">
+        <div class="loader-content">
+            <div class="loader-text">> <span id="load-game-title">loading</span> <span class="blink">_</span></div>
+            <div class="loader-bar-container">
+                <div id="loader-bar" class="loader-bar"></div>
+            </div>
+            <div id="loader-percentage" class="loader-percentage">0%</div>
+        </div>
+    </div>
+
+    <canvas id="particle-bg"></canvas>
+
+    <div class="main-layout" style="display: none;">
+        <header>
+            <div class="logo">> 🎮 GAMEKU<span class="blink">_</span></div>
+            <div class="status">Server Aktif<span>v</span></div>
+        </header>
+
+        <div class="ad-container top-ad">
+            <p>> SYSTEM.ADS: AD_SPACE_AVAILABLE [728x90] ...</p>
+        </div>
+
+        <main class="game-grid">
+            <a href="games/Neo-Run/index.html" class="game-card">
+                <img src="assets/mario-cover.png" alt="Neo Run">
+                <div class="game-title">Neo Run</div>
+            </a>
+            
+            <a href="games/game-puzzle/index.html" class="game-card">
+                <img src="https://via.placeholder.com/150/111/444?text=Puzzle" alt="Game Puzzle">
+                <div class="game-title">puzzle.bat</div>
+            </a>
+
+            <a href="#" class="game-card">
+                <img src="https://via.placeholder.com/150/111/444?text=Aksi" alt="Game Aksi">
+                <div class="game-title">aksi.sh</div>
+            </a>
+
+            <a href="#" class="game-card"><img src="https://via.placeholder.com/150/111/444" alt="Game 4"><div class="game-title">game_04.exe</div></a>
+            <a href="#" class="game-card"><img src="https://via.placeholder.com/150/111/444" alt="Game 5"><div class="game-title">game_05.exe</div></a>
+            <a href="#" class="game-card"><img src="https://via.placeholder.com/150/111/444" alt="Game 6"><div class="game-title">game_06.exe</div></a>
+            <a href="#" class="game-card"><img src="https://via.placeholder.com/150/111/444" alt="Game 7"><div class="game-title">game_07.exe</div></a>
+            <a href="#" class="game-card"><img src="https://via.placeholder.com/150/111/444" alt="Game 8"><div class="game-title">game_08.exe</div></a>
+            <a href="#" class="game-card"><img src="https://via.placeholder.com/150/111/444" alt="Game 9"><div class="game-title">game_09.exe</div></a>
+            <a href="#" class="game-card"><img src="https://via.placeholder.com/150/111/444" alt="Game 10"><div class="game-title">game_10.exe</div></a>
+        </main>
+
+        <div class="ad-container bottom-ad">
+            <p>> FETCHING_ADS: WAITING_FOR_PAYLOAD ...</p>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 Gameku. All rights reserved.</p>
+            <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> | <a href="#">Contact</a></p>
+        </footer>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
